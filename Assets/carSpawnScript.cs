@@ -6,7 +6,8 @@ public class carSpawnScript : MonoBehaviour
 {
     // public GameObject car3Spawn;
     public GameObject[] cars;
-    public logicScript logicScriptRef;
+    // container for  ref to logic script (replaced by global variable lightColor) 
+    // public logicScript logicScriptRef;
     // public GameObject trafficLight;
 
 
@@ -17,7 +18,8 @@ public class carSpawnScript : MonoBehaviour
     public bool redLightOn;
 
     void Awake () {
-        logicScriptRef = GameObject.Find("trafficLight").GetComponent<logicScript>();
+        // ref to logic script (replaced by global variable lightColor)
+        // logicScriptRef = GameObject.Find("trafficLight").GetComponent<logicScript>();
     }
 
 
@@ -25,14 +27,15 @@ public class carSpawnScript : MonoBehaviour
     void Start()
     {
         // spawner();
-        Debug.Log(logicScriptRef.redLight);
-        Debug.Log(cars.Length);
+        // Debug.Log(logicScriptRef.redLight);
+        // Debug.Log(cars.Length);
+        // Debug.Log(logicScript.lightColor);
     }
     void FixedUpdate() {
         // Debug.Log(logicScriptRef.redLight);
-        if (!logicScriptRef.redLight) {
+        if (logicScript.lightColor == 0) {
             // Debug.Log("True!!");
-        } else if (logicScriptRef.redLight) {
+        } else if (logicScript.lightColor == 1) {
             if (timer < spawnRate)
         {
             timer = timer + Time.deltaTime;
@@ -44,16 +47,14 @@ public class carSpawnScript : MonoBehaviour
         }
     }
     void spawner() {
-        indexOfCars = Random.Range(0, cars.Length-1);
+        indexOfCars = Random.Range(0, cars.Length);
         // Debug.Log(indexOfCars);
-        Debug.Log(cars.Length);
+        // Debug.Log(cars.Length);
             // Instantiate(car3Spawn, transform.position, transform.rotation);
             if (cars.Length > 0) {
-                Instantiate(cars[0], new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                Instantiate(cars[indexOfCars], new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
             } else {
-                Debug.Log(cars.Length);
+                // Debug.Log(cars.Length);
             }
-        
-        // if ()
     }
 }

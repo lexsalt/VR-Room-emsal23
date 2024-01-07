@@ -20,21 +20,23 @@ public class logicScript : MonoBehaviour
     public TMP_Text clockText;
     public SpriteRenderer greenRender;
     public SpriteRenderer redRender;
+    static public int lightColor;
     private float redTime = 17.0f;
     private float yellowTime = 2.0f;
-    private float greenTime = 30.0f;
+    private float greenTime = 20.0f;
     private float timer = 0.0f;
     private int width, height;
-    public bool redLight = true;
     public float test;
     public float greenClock;
     public float redClock;
+    public float yellowClock;
     public bool greenEnabled;
     public bool redEnabled;
 
 
     void Awake()
     {
+        lightColor = 1; // red light on
         redEnabled = redRender.enabled;
         // changeLight();
         width = Screen.width;
@@ -45,7 +47,7 @@ public class logicScript : MonoBehaviour
 
     void Update()
     {
-        if (!redLight)
+        if (lightColor == 0)
         {   greenRender.enabled = true;
             redRender.enabled = false;
             timer += Time.deltaTime;
@@ -55,10 +57,10 @@ public class logicScript : MonoBehaviour
             if (timer > greenTime)
             {
                 timer = timer - greenTime;
-                redLight = true;           
+                lightColor = 1;           
             }
         }
-        else if (redLight)
+        else if (lightColor == 1)
         {   
             redRender.enabled = true;
             greenRender.enabled = false;
@@ -68,7 +70,20 @@ public class logicScript : MonoBehaviour
             if (timer > redTime)
             {
                 timer = timer - redTime;
-                redLight = false;
+                lightColor = 2;
+            }
+
+        } else if (lightColor == 2)
+        {   
+            redRender.enabled = true;
+            greenRender.enabled = false;
+            timer += Time.deltaTime;
+            yellowClock = yellowTime - timer;
+            clockText.text = "";
+            if (timer > yellowTime)
+            {
+                timer = timer - yellowTime;
+                lightColor = 0;
             }
 
         }

@@ -22,15 +22,32 @@ public class toyCarMovement : MonoBehaviour
     void Start()
     {
         // toyCarRigidBody.AddForce(0,0,-1 * 10f);
-        
+
     }
 
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        toyCarRigidBody.AddForce(0,0, 1 * speed);
-        if (transform.position.y < -5) 
+        if (logicScript.lightColor == 1)
+        { //light is green
+            toyCarRigidBody.AddForce(0, 0, 1 * speed);
+        }
+        else if (logicScript.lightColor == 0)
+        { // light is red
+            // Debug.Log(logicScript.lightColor);
+            if (transform.position.z > -4)
+            {
+                toyCarRigidBody.AddForce(0, 0, 1 * speed);
+            }
+            else if (transform.position.z < -4)
+            {
+                toyCarRigidBody.AddForce(0, 0, 1 * 0f);
+            }
+
+        }
+
+        if (transform.position.y < -5)
         {
             Destroy(gameObject);
         }
