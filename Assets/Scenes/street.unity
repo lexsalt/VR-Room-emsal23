@@ -2147,10 +2147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18b15aa6fe123346b593ac4ec894e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cars: []
-  spawnRate: 2
-  indexOfCars: 0
-  redLightOn: 0
 --- !u!114 &375673646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2163,10 +2159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e0b3131124a4841830b441d50c1cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cars:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  cars: []
   spawnRate: 2
   indexOfCars: 0
   redLightOn: 0

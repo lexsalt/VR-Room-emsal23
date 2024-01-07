@@ -15,7 +15,6 @@ public class carSpawnScriptSouth : MonoBehaviour
     private float timer = 0;
     public int indexOfCars;
 
-    public bool redLightOn;
 
     void Awake () {
         // ref to logic script (replaced by global variable lightColor)

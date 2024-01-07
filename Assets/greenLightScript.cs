@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class greenLightScript : MonoBehaviour
 {
-  private Renderer renderer;
+  private new Renderer renderer;
 
     // Start is called before the first frame update
     void Start()
