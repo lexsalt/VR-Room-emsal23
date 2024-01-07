@@ -6,15 +6,20 @@ public class carSpawnScript : MonoBehaviour
 {
     // public GameObject car3Spawn;
     public GameObject[] cars;
+    
+
 
     public float spawnRate = 2;
     private float timer = 0;
     public int indexOfCars;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         spawner();
+        // Debug.Log() 
     }
 
     // Update is called once per frame
@@ -31,7 +36,7 @@ public class carSpawnScript : MonoBehaviour
         
     }
     void spawner() {
-        indexOfCars = Random.Range(0, 3);
+        indexOfCars = Random.Range(0, cars.Length);
             // Instantiate(car3Spawn, transform.position, transform.rotation);
         Instantiate(cars[indexOfCars], new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
         // if ()

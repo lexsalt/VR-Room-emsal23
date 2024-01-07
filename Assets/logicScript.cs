@@ -41,6 +41,7 @@ public class logicScript : MonoBehaviour
 
     void Awake()
     {
+        redEnabled = redRender.enabled;
         // changeLight();
         width = Screen.width;
         height = Screen.height;
