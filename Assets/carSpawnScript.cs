@@ -39,8 +39,9 @@ public class carSpawnScript : MonoBehaviour
             timer = timer + Time.deltaTime;
         } else 
         {
-                spawner();
+            spawner();
             timer = 0;
+            // randomSpawnRate();
         }
         }
     }
@@ -54,5 +55,8 @@ public class carSpawnScript : MonoBehaviour
             } else {
                 // Debug.Log(cars.Length);
             }
+    }
+    void randomSpawnRate () {
+        spawnRate = Random.Range(2,4);
     }
 }
