@@ -21,7 +21,9 @@ public class vespaMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        toyCarRigidBody.AddForce(0, 0, 1 * speed);
+        // toyCarRigidBody.AddForce(0, 0, 1 * speed);
+        // toyCarRigidBody.AddForce(0, 0, 1 * speed);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         if (transform.position.y < -5)
         {

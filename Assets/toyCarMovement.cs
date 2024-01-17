@@ -31,14 +31,16 @@ public class toyCarMovement : MonoBehaviour
     {
         if (logicScript.lightColor == 1)
         { //light is green
-            toyCarRigidBody.AddForce(0, 0, 1 * speed);
+            // toyCarRigidBody.AddForce(0, 0, 1 * speed);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
         else if (logicScript.lightColor == 0)
         { // light is red
             // Debug.Log(logicScript.lightColor);
             if (transform.position.z > -4)
             {
-                toyCarRigidBody.AddForce(0, 0, 1 * speed);
+                // toyCarRigidBody.AddForce(0, 0, 1 * speed);
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
             }
             else if (transform.position.z < -4)
             {
